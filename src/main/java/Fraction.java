@@ -22,26 +22,39 @@ public class Fraction implements IFraction {
 
     @Override
     public IFraction plus(IFraction other) {
-        throw new UnsupportedOperationException();
+        int finalNum = (getNumerator() *  other.getDenominator()) + (other.getNumerator() * getDenominator());
+        int finalDen = getDenominator() * other.getDenominator();
+
+        return new Fraction(finalNum, finnalDen);
+
     }
 
     @Override
     public IFraction minus(IFraction other) {
-        throw new UnsupportedOperationException();
+        int finalNum = (getNumerator() *  other.getDenominator()) - (other.getNumerator() * getDenominator());
+        int finalDen = getDenominator() * other.getDenominator();
+
+        return new Fraction(finalNum, finalDen);
     }
 
     @Override
     public IFraction times(IFraction other) {
-        throw new UnsupportedOperationException();
+        int finalNum = getNumerator() * other.getNumerator();
+        int finalDen = getDenominator() * other.getDenominator();
+
+        return new Fraction(finalNum, finalDen);
     }
 
     @Override
     public IFraction dividedBy(IFraction other) {
-        throw new UnsupportedOperationException();
+        int finalNum = getNumerator() * other.getDenominator();
+        int finalDen = other.getNumerator() * getDenominator();
+
+        return new Fraction(finalNum, finalDen);
     }
 
     public static Fraction createNormalised(Integer numerator, Integer denominator) {
-        throw new UnsupportedOperationException();
+
     }
 
     @Override
