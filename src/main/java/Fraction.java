@@ -25,7 +25,7 @@ public class Fraction implements IFraction {
         int finalNum = (getNumerator() *  other.getDenominator()) + (other.getNumerator() * getDenominator());
         int finalDen = getDenominator() * other.getDenominator();
 
-        return new Fraction(finalNum, finnalDen);
+        return new Fraction(finalNum, finalDen);
 
     }
 
@@ -53,12 +53,12 @@ public class Fraction implements IFraction {
         return new Fraction(finalNum, finalDen);
     }
 
-    public static Fraction createNormalised(Integer numerator, Integer denominator) {
+   /* public static Fraction createNormalised(Integer numerator, Integer denominator) {
             if (denominator == 0) {
                 return numerator;
             }
             return createNormalised(denominator, numerator % denominator);
-    }
+    }*/
 
     @Override
     public String toString() {
