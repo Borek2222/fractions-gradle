@@ -54,7 +54,10 @@ public class Fraction implements IFraction {
     }
 
     public static Fraction createNormalised(Integer numerator, Integer denominator) {
-
+            if (denominator == 0) {
+                return numerator;
+            }
+            return createNormalised(denominator, numerator % denominator);
     }
 
     @Override
