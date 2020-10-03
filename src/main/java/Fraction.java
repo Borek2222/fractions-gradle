@@ -53,12 +53,21 @@ public class Fraction implements IFraction {
         return new Fraction(finalNum, finalDen);
     }
 
-   /* public static Fraction createNormalised(Integer numerator, Integer denominator) {
-            if (denominator == 0) {
-                return numerator;
+
+    public static int getGcd(Integer numerator, Integer denominator) {
+        int gcd = 1;
+        for (int i = 1; i <= numerator && i <= denominator; i++) {
+            if (numerator % i == 0 && denominator % i == 0) {
+                gcd = i;
             }
-            return createNormalised(denominator, numerator % denominator);
-    }*/
+        }
+        return gcd;
+    }
+    public static Fraction createNormalised(Integer numerator, Integer denominator, Integer getGcd) {
+        int n1 = numerator / getGcd;
+        int n2 = denominator / getGcd;
+        return new Fraction(n1, n2);
+    }
 
     @Override
     public String toString() {

@@ -2,19 +2,16 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class TestAddition {
+public class TestMultiplication {
 
     @Test
-    public void testPlus() {
-        var fraction = TestUtils.createFraction(3, 5);
-        var result = fraction.plus(new NotImplementedFraction(3, 5));
+    public void testTimes() {
+        var fraction = TestUtils.createFraction(8, 1);
+        var result = fraction.times(new NotImplementedFraction(7, 5));
 
-        System.out.println(result);
-
-        Assert.assertEquals((Integer) 6, result.getNumerator());
+        Assert.assertEquals((Integer) 56, result.getNumerator());
         Assert.assertEquals((Integer) 5, result.getDenominator());
     }
-
 
     @Test
     public void testNormalisation() {
@@ -24,5 +21,4 @@ public class TestAddition {
         Assert.assertEquals((Integer) 1, result.getNumerator());
         Assert.assertEquals((Integer) 1, result.getDenominator());
     }
-
 }

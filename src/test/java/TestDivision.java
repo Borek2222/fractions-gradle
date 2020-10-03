@@ -2,16 +2,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class TestAddition {
+public class TestDivision {
 
     @Test
-    public void testPlus() {
-        var fraction = TestUtils.createFraction(3, 5);
-        var result = fraction.plus(new NotImplementedFraction(3, 5));
+    public void testDivide() {
+        var fraction = TestUtils.createFraction(7, 5);
+        var result = fraction.dividedBy(new NotImplementedFraction(1, 7));
 
-        System.out.println(result);
-
-        Assert.assertEquals((Integer) 6, result.getNumerator());
+        Assert.assertEquals((Integer) 49, result.getNumerator());
         Assert.assertEquals((Integer) 5, result.getDenominator());
     }
 
@@ -24,5 +22,4 @@ public class TestAddition {
         Assert.assertEquals((Integer) 1, result.getNumerator());
         Assert.assertEquals((Integer) 1, result.getDenominator());
     }
-
 }
