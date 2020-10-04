@@ -25,7 +25,7 @@ public class Fraction implements IFraction {
         int finalNum = (getNumerator() *  other.getDenominator()) + (other.getNumerator() * getDenominator());
         int finalDen = getDenominator() * other.getDenominator();
 
-        return new Fraction(finalNum, finalDen);
+        return createNormalised(finalNum, finalDen);
 
     }
 
@@ -34,7 +34,7 @@ public class Fraction implements IFraction {
         int finalNum = (getNumerator() *  other.getDenominator()) - (other.getNumerator() * getDenominator());
         int finalDen = getDenominator() * other.getDenominator();
 
-        return new Fraction(finalNum, finalDen);
+        return createNormalised(finalNum, finalDen);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Fraction implements IFraction {
         int finalNum = getNumerator() * other.getNumerator();
         int finalDen = getDenominator() * other.getDenominator();
 
-        return new Fraction(finalNum, finalDen);
+        return createNormalised(finalNum, finalDen);
     }
 
     @Override
@@ -50,23 +50,21 @@ public class Fraction implements IFraction {
         int finalNum = getNumerator() * other.getDenominator();
         int finalDen = other.getNumerator() * getDenominator();
 
-        return new Fraction(finalNum, finalDen);
+        return createNormalised(finalNum, finalDen);
     }
 
 
-    public static int getGcd(Integer numerator, Integer denominator) {
-        int gcd = 1;
-        for (int i = 1; i <= numerator && i <= denominator; i++) {
-            if (numerator % i == 0 && denominator % i == 0) {
-                gcd = i;
-            }
+    public static int getGcd(int n1, int n2) {
+        if (n2 == 0) {
+            return n1;
         }
-        return gcd;
+        return  getGcd(n2, n1 % n2);
     }
-    public static Fraction createNormalised(Integer numerator, Integer denominator, Integer getGcd) {
-        int n1 = numerator / getGcd;
-        int n2 = denominator / getGcd;
-        return new Fraction(n1, n2);
+
+    public static Fraction createNormalised(Integer numerator, Integer denominator) {
+        var gcd = getGcd(numerator, denominator);
+
+        return new Fraction(numerator / gcd, denominator/ gcd);
     }
 
     @Override
